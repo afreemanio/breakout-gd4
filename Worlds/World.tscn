@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Worlds/World.gd" id="1_358hd"]
 [ext_resource type="Texture2D" uid="uid://c6ryjqgekgcv0" path="res://Assets/Sprites/wall_blue.png" id="1_vyruy"]
 [ext_resource type="Texture2D" uid="uid://b0kilk73refda" path="res://Assets/Sprites/wall_gray.png" id="2_72jsv"]
+[ext_resource type="PackedScene" uid="uid://t2v0xs2kvgve" path="res://Levels/DynamicLevel.tscn" id="2_mkoo1"]
 [ext_resource type="Texture2D" uid="uid://cdyfhvu1kq7h2" path="res://Assets/Sprites/wall_green.png" id="3_bb671"]
 [ext_resource type="PackedScene" uid="uid://d1uqhwklv2pnk" path="res://Player/Ball.tscn" id="4_jb7gu"]
 [ext_resource type="PackedScene" uid="uid://bkhne2ejqpoig" path="res://Player/Player.tscn" id="5_fk2l0"]
-[ext_resource type="PackedScene" uid="uid://bfa460xbqvngj" path="res://Levels/EasyLevel.tscn" id="6_pxb04"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmton"]
 texture = ExtResource("1_vyruy")
@@ -43,6 +43,10 @@ sources/2 = SubResource("TileSetAtlasSource_3615p")
 [node name="World" type="Node"]
 script = ExtResource("1_358hd")
 
+[node name="DynamicLevel" parent="." instance=ExtResource("2_mkoo1")]
+position = Vector2(32, 32)
+difficulty = 5
+
 [node name="Walls" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8h8qn")
 format = 2
@@ -54,5 +58,3 @@ speed = 835
 
 [node name="Player" parent="." instance=ExtResource("5_fk2l0")]
 position = Vector2(487, 749)
-
-[node name="EasyLevel" parent="." instance=ExtResource("6_pxb04")]

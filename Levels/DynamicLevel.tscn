@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://t2v0xs2kvgve"]
+
+[ext_resource type="Texture2D" uid="uid://c70yk8fdtefi1" path="res://Assets/Sprites/20220428_190943.png" id="1_cyccu"]
+[ext_resource type="Script" path="res://Levels/DynamicLevel.gd" id="1_ix8xd"]
+
+[node name="DynamicLevel" type="Node2D"]
+script = ExtResource("1_ix8xd")
+
+[node name="BackgroundSprite2D" type="Sprite2D" parent="."]
+position = Vector2(341, 520)
+scale = Vector2(0.736923, 0.472826)
+texture = ExtResource("1_cyccu")
