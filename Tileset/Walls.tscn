@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5485m4qgdr63"]
+
+[ext_resource type="Texture2D" uid="uid://c6ryjqgekgcv0" path="res://Assets/Sprites/wall_blue.png" id="1_4c4uw"]
+[ext_resource type="Texture2D" uid="uid://b0kilk73refda" path="res://Assets/Sprites/wall_gray.png" id="2_i8vco"]
+[ext_resource type="Texture2D" uid="uid://cdyfhvu1kq7h2" path="res://Assets/Sprites/wall_green.png" id="3_ced48"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ea4n"]
+size = Vector2(32, 32)
+
+[node name="Node" type="Node"]
+
+[node name="WallBlue" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_4c4uw")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallBlue"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBlue/StaticBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_1ea4n")
+
+[node name="WallGray" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(48, 0)
+texture = ExtResource("2_i8vco")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallGray"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallGray/StaticBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_1ea4n")
+
+[node name="WallGreen" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(96, 0)
+texture = ExtResource("3_ced48")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallGreen"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallGreen/StaticBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_1ea4n")

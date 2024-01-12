@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://we30j6eiogb5"]
+
+[ext_resource type="Script" path="res://Bricks/Brick.gd" id="1_oolsm"]
+[ext_resource type="Texture2D" uid="uid://ypehqu7qrlul" path="res://Assets/Sprites/brick_whole.png" id="2_cqxhe"]
+[ext_resource type="Texture2D" uid="uid://c3ubwsgr05tq3" path="res://Assets/Sprites/brick_hit.png" id="3_03sxh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5cs4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cqxhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_03sxh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaf8g"]
+size = Vector2(96, 32)
+
+[node name="GreenBrick" type="StaticBody2D"]
+script = ExtResource("1_oolsm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 16)
+sprite_frames = SubResource("SpriteFrames_p5cs4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_oaf8g")

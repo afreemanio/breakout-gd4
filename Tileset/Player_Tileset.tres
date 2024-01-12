@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://kxvis200piee"]
+
+[ext_resource type="Texture2D" uid="uid://dw76x8lp7wrki" path="res://Assets/Sprites/player_tileMap.png" id="1_pxdks"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6osm"]
+texture = ExtResource("1_pxdks")
+texture_region_size = Vector2i(8, 8)
+0:0/size_in_atlas = Vector2i(3, 4)
+0:0/0 = 0
+3:0/size_in_atlas = Vector2i(3, 4)
+3:0/0 = 0
+6:0/size_in_atlas = Vector2i(3, 4)
+6:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_q6osm")

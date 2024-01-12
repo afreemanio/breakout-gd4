@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://8ww0rhq3k5t5"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_me1e8"]
+[ext_resource type="PackedScene" uid="uid://bs88t4sc7ei6g" path="res://Tileset/PlayerTiles/right_part.tscn" id="2_ygp5q"]
+[ext_resource type="PackedScene" uid="uid://d2ie82f14h7an" path="res://Tileset/PlayerTiles/left_part.tscn" id="3_3hodq"]
+[ext_resource type="PackedScene" uid="uid://deqmton13d7ku" path="res://Tileset/PlayerTiles/middle_part.tscn" id="4_dqe0w"]
+[ext_resource type="Script" path="res://Player/PlayerMap.gd" id="5_v8nss"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8g1eo"]
+scenes/8/scene = ExtResource("3_3hodq")
+scenes/9/scene = ExtResource("4_dqe0w")
+scenes/10/scene = ExtResource("2_ygp5q")
+
+[sub_resource type="TileSet" id="TileSet_4tqnx"]
+tile_size = Vector2i(24, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetScenesCollectionSource_8g1eo")
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_me1e8")
+metadata/_edit_group_ = true
+
+[node name="PlayerMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_4tqnx")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 524288, 1, 0, 589824, 2, 0, 589824, 3, 0, 589824, 4, 0, 589824, 5, 0, 589824, 6, 0, 589824, 7, 0, 589824, 8, 0, 589824, 9, 0, 589824, 10, 0, 589824, 11, 0, 589824, 12, 0, 655360)
+script = ExtResource("5_v8nss")

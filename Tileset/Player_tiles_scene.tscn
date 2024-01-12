@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc2vt1otu4p0s"]
+
+[ext_resource type="Texture2D" uid="uid://dw76x8lp7wrki" path="res://Assets/Sprites/player_tileMap.png" id="1_5f0q6"]
+
+[node name="PlayerTiles" type="Node2D"]
+
+[node name="LeftPart" type="Sprite2D" parent="."]
+texture = ExtResource("1_5f0q6")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LeftPart"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftPart/StaticBody2D"]
+polygon = PackedVector2Array(12, -16, 0, -16, -8, -12, -12, -4, -12, 4, -8, 12, 0, 16, 12, 16)
+
+[node name="RightPart" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+rotation = 3.14159
+texture = ExtResource("1_5f0q6")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RightPart"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightPart/StaticBody2D"]
+polygon = PackedVector2Array(12, -16, 0, -16, -8, -12, -12, -4, -12, 4, -8, 12, 0, 16, 12, 16)
+
+[node name="MiddlePart" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+rotation = 3.14159
+texture = ExtResource("1_5f0q6")
+region_enabled = true
+region_rect = Rect2(24, 0, 24, 32)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MiddlePart"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MiddlePart/StaticBody2D"]
+polygon = PackedVector2Array(12, 16, -12, 16, -12, -16, 12, -16)

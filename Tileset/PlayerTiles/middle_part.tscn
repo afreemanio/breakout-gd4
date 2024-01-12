@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://deqmton13d7ku"]
+
+[ext_resource type="Texture2D" uid="uid://dw76x8lp7wrki" path="res://Assets/Sprites/player_tileMap.png" id="1_b5lip"]
+
+[node name="MiddlePart" type="Node2D"]
+
+[node name="MiddlePart" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_b5lip")
+region_enabled = true
+region_rect = Rect2(24, 0, 24, 32)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MiddlePart"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MiddlePart/StaticBody2D"]
+polygon = PackedVector2Array(12, 16, -12, 16, -12, -16, 12, -16)

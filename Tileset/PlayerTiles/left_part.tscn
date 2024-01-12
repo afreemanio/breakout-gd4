@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2ie82f14h7an"]
+
+[ext_resource type="Texture2D" uid="uid://dw76x8lp7wrki" path="res://Assets/Sprites/player_tileMap.png" id="1_vi31u"]
+
+[node name="LeftPart" type="Node2D"]
+
+[node name="LeftPart" type="Sprite2D" parent="."]
+texture = ExtResource("1_vi31u")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LeftPart"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftPart/StaticBody2D"]
+polygon = PackedVector2Array(12, -16, 0, -16, -8, -12, -12, -4, -12, 4, -8, 12, 0, 16, 12, 16)

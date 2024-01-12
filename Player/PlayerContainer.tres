@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cgc20w64mapm8"]
+
+[ext_resource type="Script" path="res://Player/PlayerContainer.gd" id="1_ir40d"]
+
+[resource]
+script = ExtResource("1_ir40d")
