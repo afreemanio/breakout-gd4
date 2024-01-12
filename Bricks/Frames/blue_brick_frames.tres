@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://druwfm131f5ro"]
+
+[ext_resource type="Texture2D" uid="uid://cgeab6hs150c1" path="res://Assets/Sprites/brick_blue.png" id="1_lmm5b"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lmm5b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

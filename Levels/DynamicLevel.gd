@@ -7,8 +7,9 @@ extends Node2D
 const cell_width = 96
 const cell_height = 32
 
-const blue_brick_class = preload("res://Bricks/BlueBrick.tscn")
-const green_brick_class = preload("res://Bricks/GreenBrick.tscn")
+const brick_class = preload("res://Bricks/Brick.tscn")
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,15 +22,20 @@ func _ready():
 			if random < empty_brick_range:
 				pass
 			elif random < 0.7:
-				var blue_brick = blue_brick_class.instantiate()
-				init_brick(blue_brick, row, column)
+				var brick = brick_class.instantiate()
+				init_brick(brick.Frames.BLUE, brick, row, column)
+			elif random < 0.9:
+				var brick = brick_class.instantiate()
+				init_brick(brick.Frames.GREEN, brick, row, column)
 			else:
-				var green_brick = green_brick_class.instantiate()
-				init_brick(green_brick, row, column)
+				var brick = brick_class.instantiate()
+				init_brick(brick.Frames.DARK, brick, row, column, true)
 	
 	pass # Replace with function body.
 
-func init_brick(brick, row, column):
+func init_brick(brick_frames_type, brick, row, column, indestructible = false):
+	brick.set_frame_type(brick_frames_type)
+	brick.set_indestructible(indestructible)
 	add_child(brick)
 	brick.position.x = column * cell_width
 	brick.position.y = row * cell_height

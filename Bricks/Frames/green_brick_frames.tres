@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://f00l8if6qx7d"]
+
+[ext_resource type="Texture2D" uid="uid://ypehqu7qrlul" path="res://Assets/Sprites/brick_whole.png" id="1_n8lgy"]
+[ext_resource type="Texture2D" uid="uid://c3ubwsgr05tq3" path="res://Assets/Sprites/brick_hit.png" id="2_j67kr"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n8lgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j67kr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

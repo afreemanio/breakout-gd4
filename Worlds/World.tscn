@@ -54,8 +54,8 @@ layer_0/tile_data = PackedInt32Array(1507328, 2, 0, 1441792, 2, 0, 1376256, 2, 0
 
 [node name="Ball" parent="." instance=ExtResource("4_jb7gu")]
 position = Vector2(502, 693)
-speed = 1435
+speed = 760
 
 [node name="Player" parent="." instance=ExtResource("5_fk2l0")]
 position = Vector2(487, 749)
-acceleration = 920
+acceleration = 805
