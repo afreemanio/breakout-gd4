@@ -8,11 +8,17 @@ const cell_width = 96
 const cell_height = 32
 
 const brick_class = preload("res://Bricks/Brick.tscn")
+const globalrandom = preload("res://Worlds/GlobalRandom.tres")
 
+
+func handle_global_random():
+	if globalrandom.random_mode_enabled:
+		difficulty = randi_range(1, 8)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	handle_global_random()
 	rows += difficulty
 	var empty_brick_range = 0.6 - (difficulty / 10.0) # [0.1, 0.5]
 	

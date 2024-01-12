@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqquu1y31s0rk"]
+
+[ext_resource type="Script" path="res://Worlds/World.gd" id="1_358hd"]
+[ext_resource type="Texture2D" uid="uid://c6ryjqgekgcv0" path="res://Assets/Sprites/wall_blue.png" id="1_vyruy"]
+[ext_resource type="Texture2D" uid="uid://b0kilk73refda" path="res://Assets/Sprites/wall_gray.png" id="2_72jsv"]
+[ext_resource type="PackedScene" uid="uid://t2v0xs2kvgve" path="res://Levels/DynamicLevel.tscn" id="2_mkoo1"]
+[ext_resource type="Texture2D" uid="uid://cdyfhvu1kq7h2" path="res://Assets/Sprites/wall_green.png" id="3_bb671"]
+[ext_resource type="PackedScene" uid="uid://d1uqhwklv2pnk" path="res://Player/Ball.tscn" id="4_jb7gu"]
+[ext_resource type="PackedScene" uid="uid://bkhne2ejqpoig" path="res://Player/Player.tscn" id="5_fk2l0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmton"]
+texture = ExtResource("1_vyruy")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-15.75, -15.75, 15.375, -15.5, 15.75, 15.375, -16, 15)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfplc"]
+texture = ExtResource("2_72jsv")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3615p"]
+texture = ExtResource("3_bb671")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_8h8qn"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_qmton")
+sources/1 = SubResource("TileSetAtlasSource_tfplc")
+sources/2 = SubResource("TileSetAtlasSource_3615p")
+
+[node name="World" type="Node"]
+script = ExtResource("1_358hd")
+
+[node name="DynamicLevel" parent="." instance=ExtResource("2_mkoo1")]
+position = Vector2(32, 32)
+difficulty = 5
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8h8qn")
+format = 2
+layer_0/tile_data = PackedInt32Array(1507328, 2, 0, 1441792, 2, 0, 1376256, 2, 0, 1310720, 2, 0, 1245184, 2, 0, 1179648, 2, 0, 1114112, 2, 0, 1048576, 2, 0, 983040, 2, 0, 917504, 2, 0, 851968, 2, 0, 786432, 2, 0, 720896, 2, 0, 655360, 2, 0, 589824, 2, 0, 524288, 2, 0, 458752, 2, 0, 393216, 2, 0, 327680, 2, 0, 262144, 2, 0, 196608, 2, 0, 131072, 2, 0, 65536, 2, 0, 0, 2, 0, 31, 2, 0, 65567, 2, 0, 131103, 2, 0, 196639, 2, 0, 262175, 2, 0, 327711, 2, 0, 393247, 2, 0, 458783, 2, 0, 524319, 2, 0, 589855, 2, 0, 655391, 2, 0, 720927, 2, 0, 786463, 2, 0, 851999, 2, 0, 917535, 2, 0, 983071, 2, 0, 1048607, 2, 0, 1114143, 2, 0, 1179679, 2, 0, 1245215, 2, 0, 1310751, 2, 0, 1376287, 2, 0, 1507359, 2, 0, 1441823, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 25, 2, 0, 26, 2, 0, 27, 2, 0, 28, 2, 0, 29, 2, 0, 30, 2, 0)
+
+[node name="Ball" parent="." instance=ExtResource("4_jb7gu")]
+position = Vector2(502, 693)
+speed = 760
+
+[node name="Player" parent="." instance=ExtResource("5_fk2l0")]
+position = Vector2(487, 749)
+acceleration = 805

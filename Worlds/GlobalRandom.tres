@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="GlobalRandom" load_steps=2 format=3 uid="uid://cupbk0s6whlj8"]
+
+[ext_resource type="Script" path="res://Worlds/GlobalRandom.gd" id="1_msop7"]
+
+[resource]
+script = ExtResource("1_msop7")

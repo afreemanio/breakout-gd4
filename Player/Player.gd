@@ -33,6 +33,8 @@ extends CharacterBody2D
 @export var acceleration = 500
 
 const player_container = preload("res://Player/PlayerContainer.tres")
+const globalrandom = preload("res://Worlds/GlobalRandom.tres")
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -43,8 +45,12 @@ var friction = 200
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var original_pos = 0
 
+func handle_global_random():
+	if globalrandom.random_mode_enabled:
+		acceleration = randi_range(400, 1500)
 
 func _ready():
+	handle_global_random()
 	print("I am ready")
 	player_container.player = self
 	original_pos = global_position.y

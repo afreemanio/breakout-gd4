@@ -7,6 +7,7 @@ extends CharacterBody2D
 #@onready var ball_visibility_notifier = get_node("BallVisibilityNotifier")
 
 const player_container = preload("res://Player/PlayerContainer.tres")
+const globalrandom = preload("res://Worlds/GlobalRandom.tres")
 
 #velocity = Vector2(0, 0)
 var world = "res://Worlds/World.tscn"
@@ -53,9 +54,14 @@ func get_x_bounce_direction(collision: KinematicCollision2D):
 	var percentage = relative_x / player_container.player_width
 	return (percentage - 0.5) * 2 # [-1, 1]
 	
+	
+func handle_global_random():
+	if globalrandom.random_mode_enabled:
+		speed = randi_range(400, 2000)
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
+	handle_global_random()
 	pass # Replace with function body.
 
 
