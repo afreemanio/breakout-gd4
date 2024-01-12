@@ -15,6 +15,8 @@ var direction = Vector2(0.5, 1)
 var is_running = false
 var game_over = false
 
+signal brick_hit(brick)
+
 
 func _physics_process(delta):
 
@@ -43,8 +45,9 @@ func _physics_process(delta):
 		else:
 			#print(collision.get_collider().get_meta_list())
 			if collision.get_collider().get_meta("brick"):
-				collision.get_collider().decrease_hit_points()
-				print("brick")
+				var brick = collision.get_collider()
+				emit_signal("brick_hit", brick)
+				brick.decrease_hit_points()
 			direction = direction.bounce(collision.get_normal())
 	
 	pass

@@ -4,3 +4,4 @@
 
 [resource]
 script = ExtResource("1_msop7")
+random_mode_enabled = false

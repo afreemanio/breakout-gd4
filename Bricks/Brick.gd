@@ -57,6 +57,9 @@ func decrease_hit_points():
 	if hit_points <= 0:
 		queue_free()
 
+func is_alive_after_hit():
+	return hit_points > 1
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
