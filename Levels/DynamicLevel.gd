@@ -3,6 +3,7 @@ extends Node2D
 @export_range(1, 8) var rows = 3
 @export_range(1, 10) var columns = 10
 @export_range(1, 5) var difficulty = 1 
+@export var testmode = false 
 # brick size
 const cell_width = 96
 const cell_height = 32
@@ -30,8 +31,9 @@ func _ready():
 	handle_global_random()
 	rows += difficulty
 	var empty_brick_range = 0.6 - (difficulty / 10.0) # [0.1, 0.5]
-	test_one_brick()
-	return
+	if testmode:
+		test_one_brick()
+		return
 
 	
 	for column in range(0, columns):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dviwof7pw1j8p"]
+[gd_scene load_steps=5 format=3 uid="uid://ujhdkn0w62fg"]
 
 [ext_resource type="Texture2D" uid="uid://cgeab6hs150c1" path="res://Assets/Sprites/brick_blue.png" id="1_62wa4"]
 [ext_resource type="Script" path="res://Bricks/Brick.gd" id="1_nsf2v"]

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://6ge0bug2bnds"]
+
+[ext_resource type="Script" path="res://Audio/AudioManager.gd" id="1_yjx05"]
+
+[resource]
+script = ExtResource("1_yjx05")

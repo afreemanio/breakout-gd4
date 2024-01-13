@@ -11,7 +11,13 @@ var hit_points
 var blue_frames = preload("res://Bricks/Frames/blue_brick_frames.tres")
 var green_frames = preload("res://Bricks/Frames/green_brick_frames.tres")
 var dark_frames = preload("res://Bricks/Frames/dark_brick_frames.tres")
-var indestructible = false
+#var indestructible = false setget set_indestructible, is_indestructible
+var indestructible = false :
+	get:
+		return indestructible
+	set(value):
+		indestructible = value
+
 
 # Defaulted frames
 var current_frame_type = Frames.BLUE
@@ -22,6 +28,9 @@ func set_frame_type(frames):
 
 func set_indestructible(value: bool):
 	indestructible = value
+	
+func is_indestructible():
+	return indestructible
 
 # when the object initializes - this runs, setting the frames for the sprite
 # then, set frames is used in the parent to set the frames
