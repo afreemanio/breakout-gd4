@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dieoyogltr0n"]
+[gd_scene load_steps=4 format=3 uid="uid://dieoyogltr0n"]
 
 [ext_resource type="Theme" uid="uid://i6jbm7gj4lgp" path="res://Styles/MainTheme.tres" id="1_0fyh3"]
 [ext_resource type="Script" path="res://Menus/LevelDoneMenu.gd" id="2_ar3bd"]
+[ext_resource type="AudioStream" uid="uid://4td1y1qoa7ab" path="res://Assets/Audio/andrew_you_win.wav" id="3_yv2qk"]
 
 [node name="LevelDone" type="Control"]
 layout_mode = 3
@@ -39,5 +40,8 @@ offset_bottom = 2321.0
 scale = Vector2(0.0387882, 0.0547972)
 theme_override_font_sizes/font_size = 1806
 text = "RESET GAME "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yv2qk")
 
 [connection signal="pressed" from="Button" to="." method="_on_restart_button_pressed"]

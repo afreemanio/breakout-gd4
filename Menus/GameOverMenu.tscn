@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb4kkkl632knt"]
+[gd_scene load_steps=4 format=3 uid="uid://bb4kkkl632knt"]
 
 [ext_resource type="Theme" uid="uid://i6jbm7gj4lgp" path="res://Styles/MainTheme.tres" id="1_1b4cy"]
 [ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="2_s2d8o"]
+[ext_resource type="AudioStream" uid="uid://d85g8p1pdg56" path="res://Assets/Audio/andrew_you_lose.wav" id="3_ua3g2"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -39,5 +40,8 @@ offset_bottom = 2321.0
 scale = Vector2(0.0387882, 0.0547972)
 theme_override_font_sizes/font_size = 1806
 text = "RESET GAME "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ua3g2")
 
 [connection signal="pressed" from="Button" to="." method="_on_restart_button_pressed"]

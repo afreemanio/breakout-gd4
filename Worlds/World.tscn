@@ -45,8 +45,7 @@ sources/2 = SubResource("TileSetAtlasSource_3615p")
 
 [node name="DynamicLevel" parent="." instance=ExtResource("2_mkoo1")]
 position = Vector2(32, 32)
-rows = 1
-testmode = true
+difficulty = 2
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8h8qn")

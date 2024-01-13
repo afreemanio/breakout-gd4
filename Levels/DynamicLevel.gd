@@ -19,7 +19,7 @@ signal level_done
 
 func handle_global_random():
 	if globalrandom.random_mode_enabled:
-		difficulty = randi_range(1, 8)
+		difficulty = randi_range(1, 5)
 
 func test_one_brick():
 	var brick = brick_class.instantiate()
