@@ -10,13 +10,12 @@ extends CharacterBody2D
 const player_container = preload("res://Player/PlayerContainer.tres")
 const globalrandom = preload("res://Worlds/GlobalRandom.tres")
 const audio_manager = preload("res://Audio/AudioManager.tres")
-
+signal game_over
 
 #velocity = Vector2(0, 0)
 var world = "res://Worlds/World.tscn"
 var direction = Vector2(0.5, 1)
 var is_running = false
-var game_over = false
 
 signal brick_hit(brick)
 
@@ -120,11 +119,12 @@ func _process(delta):
 
 
 func is_game_over():
-	if not game_over and not ball_visibility_notifier.is_on_screen():
-		print("Game over")
-		game_over = true
-		#get_tree().change_scene(world)
-		get_tree().change_scene_to_file(world)
+	if not ball_visibility_notifier.is_on_screen():
+		emit_signal("game_over")
+		is_running = false
 
 
 
+func _on_dynamic_level_level_done():
+	is_running = false
+	pass # Replace with function body.

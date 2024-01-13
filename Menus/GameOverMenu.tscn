@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb4kkkl632knt"]
+
+[ext_resource type="Theme" uid="uid://i6jbm7gj4lgp" path="res://Styles/MainTheme.tres" id="1_1b4cy"]
+[ext_resource type="Script" path="res://Menus/GameOverMenu.gd" id="2_s2d8o"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 1048.0
+offset_bottom = 808.0
+theme = ExtResource("1_1b4cy")
+script = ExtResource("2_s2d8o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -232.0
+offset_right = 424.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 83
+bbcode_enabled = true
+text = "[center] You Failed [/center]"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 280.0
+offset_right = 13432.0
+offset_bottom = 2321.0
+scale = Vector2(0.0387882, 0.0547972)
+theme_override_font_sizes/font_size = 1806
+text = "RESET GAME "
+
+[connection signal="pressed" from="Button" to="." method="_on_restart_button_pressed"]

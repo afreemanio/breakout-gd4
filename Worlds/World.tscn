@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqquu1y31s0rk"]
+[gd_scene load_steps=13 format=3 uid="uid://dqquu1y31s0rk"]
 
-[ext_resource type="Script" path="res://Worlds/World.gd" id="1_358hd"]
 [ext_resource type="Texture2D" uid="uid://c6ryjqgekgcv0" path="res://Assets/Sprites/wall_blue.png" id="1_vyruy"]
 [ext_resource type="Texture2D" uid="uid://b0kilk73refda" path="res://Assets/Sprites/wall_gray.png" id="2_72jsv"]
 [ext_resource type="PackedScene" uid="uid://t2v0xs2kvgve" path="res://Levels/DynamicLevel.tscn" id="2_mkoo1"]
 [ext_resource type="Texture2D" uid="uid://cdyfhvu1kq7h2" path="res://Assets/Sprites/wall_green.png" id="3_bb671"]
 [ext_resource type="PackedScene" uid="uid://d1uqhwklv2pnk" path="res://Player/Ball.tscn" id="4_jb7gu"]
 [ext_resource type="PackedScene" uid="uid://bkhne2ejqpoig" path="res://Player/Player.tscn" id="5_fk2l0"]
+[ext_resource type="PackedScene" uid="uid://bb4kkkl632knt" path="res://Menus/GameOverMenu.tscn" id="7_51b5g"]
+[ext_resource type="PackedScene" uid="uid://dieoyogltr0n" path="res://Menus/LevelDoneMenu.tscn" id="8_6sh8t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmton"]
 texture = ExtResource("1_vyruy")
@@ -41,11 +42,11 @@ sources/1 = SubResource("TileSetAtlasSource_tfplc")
 sources/2 = SubResource("TileSetAtlasSource_3615p")
 
 [node name="World" type="Node"]
-script = ExtResource("1_358hd")
 
 [node name="DynamicLevel" parent="." instance=ExtResource("2_mkoo1")]
 position = Vector2(32, 32)
 rows = 1
+testmode = true
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8h8qn")
@@ -60,4 +61,15 @@ speed = 760
 position = Vector2(487, 749)
 acceleration = 805
 
+[node name="GameOver" parent="." instance=ExtResource("7_51b5g")]
+visible = false
+
+[node name="LevelDone" parent="." instance=ExtResource("8_6sh8t")]
+visible = false
+
+[connection signal="level_done" from="DynamicLevel" to="Ball" method="_on_dynamic_level_level_done"]
+[connection signal="level_done" from="DynamicLevel" to="Player" method="_on_dynamic_level_level_done"]
+[connection signal="level_done" from="DynamicLevel" to="LevelDone" method="_on_dynamic_level_level_done"]
 [connection signal="brick_hit" from="Ball" to="DynamicLevel" method="_on_ball_brick_hit"]
+[connection signal="game_over" from="Ball" to="Player" method="_on_ball_game_over"]
+[connection signal="game_over" from="Ball" to="GameOver" method="_on_ball_game_over"]

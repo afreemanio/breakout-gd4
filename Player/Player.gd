@@ -44,6 +44,8 @@ var friction = 200
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var original_pos = 0
+var is_running = false
+
 
 func handle_global_random():
 	if globalrandom.random_mode_enabled:
@@ -52,6 +54,7 @@ func handle_global_random():
 func _ready():
 	handle_global_random()
 	print("I am ready")
+	is_running = true
 	player_container.player = self
 	original_pos = global_position.y
 	var test = $CollisionShape2D.shape.radius
@@ -60,7 +63,8 @@ func _ready():
 
 
 func _physics_process(delta):
-
+	if not is_running:
+		return
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -acceleration
 	if Input.is_action_pressed("move_right"):		
@@ -100,3 +104,13 @@ func fix_y_pos():
 
 
 
+
+
+func _on_dynamic_level_level_done():
+	is_running = false
+	pass
+
+
+func _on_ball_game_over():
+	is_running = false
+	pass
